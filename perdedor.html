@@ -6,7 +6,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-<title>Menu | Classic Space Invaders</title>
+<title>Você Perdeu | Classic Space Invaders</title>
 <style>
 body {
 display: flex;
@@ -16,26 +16,12 @@ justify-content: center;
 height: 100vh;
 margin: 0;
 font-family: 'Press Start 2P', cursive;
-background: linear-gradient(0deg, rgba(16, 254, 226, 0.804) 0%, rgb(0, 0, 0) 100%);
-color: rgb(255, 255, 255);
-}
-.logo {
-position: absolute;
-top: 20px;
-left: 20px;
-width: 250px; /* Aumentar a largura da logo */
+background: linear-gradient(0deg, rgba(255, 0, 0, 0.804) 0%, rgb(0, 0, 0) 100%);
+color: white;
 }
 h1 {
 font-size: 3em;
 margin-bottom: 20px;
-}
-h3 {
-margin-bottom: 10px;
-text-align: center;
-}
-h5 {
-margin-bottom: 20px;
-text-align: center;
 }
 button {
 font-family: 'Press Start 2P', cursive;
@@ -54,15 +40,12 @@ background-color: #0056b3;
 </style>
 </head>
 <body>
-<img src="src/assets/images/SescSenac.png" alt="Logo SescSenac" class="logo">
-<h1>Classic Space Invaders</h1>
-<h3>Uma cambada de aliens chegaram para dominar a terra, elimine-os para salvar nosso planeta!</h3>
-<h5>Comandos: Seta para direita para ir para direita, seta esquerda para ir para esquerda, espaço para disparar</h5>
-<button onclick="startGame()">Jogar</button>
+<h1>Você Perdeu</h1>
+<button onclick="restartGame()">Recomeçar</button>
 <script>
 
-function startGame() {
-window.location.href = "index.html";
+function restartGame() {
+window.location.href = "inicio.html";
 }
 </script>
 </body>
