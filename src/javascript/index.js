@@ -15,45 +15,41 @@ const enemyBulletController = new BulletController(canvas, 4, "red", false);
 const playerBulletController = new BulletController(canvas, 10, "white", true);
 
 const enemyController = new EnemyController(canvas, enemyBulletController, playerBulletController);
-const player = new Player(canvas, 10, playerBulletController); 
+const player = new Player(canvas, 10, playerBulletController);
 
 let isGameOver = false;
 let didWin = false;
 
 function game() {
-    checkGameOver();
-    ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
-    
-    if(!isGameOver) {
-        enemyController.draw(ctx);
-        player.draw(ctx);
-        playerBulletController.draw(ctx);
-        enemyBulletController.draw(ctx);
-    } else {
-        displayGameOver();
-    }
+checkGameOver();
+if (isGameOver) {
+displayGameOver();
+return;
 }
-
+ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+enemyController.draw(ctx);
+player.draw(ctx);
+playerBulletController.draw(ctx);
+enemyBulletController.draw(ctx);
+}
 function displayGameOver() {
-    let text = didWin ? "Você Ganhou!" : "Game Over";
-    let textOffset = didWin ? 5 : 3.6;
-    
-    ctx.fillStyle = "white";
-    ctx.font = "35px 'Press Start 2P'";
-    ctx.fillText(text, canvas.width / textOffset, canvas.height / 2);   
-}
 
+if (didWin) {
+window.location.href = "vencedor.html";
+} else {
+window.location.href = "perdedor.html";
+}
+}
 function checkGameOver() {
-    if(isGameOver) {
-        return;
-    }
-    if(enemyBulletController.collideWith(player) || enemyController.collideWith(player)) {
-        isGameOver = true;
-    }
-    if(enemyController.enemyRows.length === 0) {
-        didWin = true;
-        isGameOver = true;
-    }
-}
 
+if (isGameOver) return;
+if (enemyBulletController.collideWith(player) || enemyController.collideWith(player)) {
+
+isGameOver = true;
+}
+if (enemyController.enemyRows.length === 0) {
+didWin = true;
+isGameOver = true;
+}
+}
 setInterval(game, 1000 / 60);
