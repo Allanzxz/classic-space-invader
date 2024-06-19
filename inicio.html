@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<title> Ana| Classic Space Invaders</title>
+<style>
+body {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+height: 100vh;
+margin: 0;
+font-family: 'Press Start 2P', cursive;
+background: linear-gradient(0deg, rgba(254, 16, 175, 0) 0%, rgb(0, 0, 0) 100%);
+color: rgb(255, 255, 255);
+}
+.logo {
+position: absolute;
+top: 20px;
+left: 20px;
+width: 250px; /* Aumentar a largura da logo */
+}
+h1 {
+font-size: 3em;
+margin-bottom: 20px;
+}
+h3 {
+margin-bottom: 10px;
+text-align: center;
+}
+h5 {
+margin-bottom: 20px;
+text-align: center;
+}
+button {
+font-family: 'Press Start 2P', cursive;
+font-size: 1.5em;
+padding: 10px 20px;
+color: white;
+background-color: #d400ff00;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+transition: background-color 0.3s;
+}
+button:hover {
+background-color: #b300958a;
+}
+</style>
+</head>
+<body>
+<img src="src/assets/images/logo.senac.png" alt="Logo SescSenac" class="logo">
+<h1>Classic Space Invaders</h1>
+<h3>Uma cambada de aliens chegaram para dominar a terra, elimine-os para salvar nosso planeta!</h3>
+<h5>Comandos: Seta para direita para ir para direita, seta esquerda para ir para esquerda, espaço para disparar</h5>
+<button onclick="startGame()">Jogar</button>
+<script>
+
+function startGame() {
+window.location.href = "index.html";
+}
+</script>
+</body>
+</html>
