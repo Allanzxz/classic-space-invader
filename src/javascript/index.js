@@ -10,6 +10,12 @@ const gameOverScreen = document.getElementById("gameOverScreen");
 const winScreen = document.getElementById("winScreen");
 const title = document.getElementById("title");
 const scoreDisplay = document.getElementById("score")
+const playerButton = document.getElementById("playButton");
+const gameOverScreenScore = document.getElementById("gameOverScreenScore");
+const retryButton = document.getElementById("retryButton");
+const restartButton = document.getElementById("restartButton");
+const winScreenScore = document.getElementById("winScreenScore");
+const footer = document.getElementById("footer");
 
 canvas.width = 1024;
 canvas.height = 600;
@@ -25,6 +31,7 @@ const player = new Player(canvas, 10, playerBulletController);
 
 let isGameOver = false;
 let didWin = false;
+let gameInterval;
 
 function game() {
     canvas.style.display = "none";
@@ -46,7 +53,7 @@ if (isGameOver) {
 }
 
 function displayGameOver() {
-    let text = didWin ? "Voçe ganhou!" : "Game Over!";
+    let text = didWin ? "Voce ganhou!" : "Game Over!";
     let textOffset = didWin ? 5 : 3.6;
 
     ctx.fillStyle = "white";
@@ -69,4 +76,20 @@ didWin = true;
 isGameOver = true;
 }
 }
+function startGame () {
+    instructions.style.display = "none";
+    logosContainer.style.display = "none";
+    footerContainer.style.display = "none";
+    winScreen.style.display = "none";
+
+    title.style.display = "flex";
+    scoreDisplay.style.display = "flex";
+
+    canvas.style.display = "block";
+    gameInterval = setInterval(game, 1000 / 60);
+    
+}
+playerButton.addEventListener("click", startGame);
+
+
 setInterval(game, 1000 / 60);
