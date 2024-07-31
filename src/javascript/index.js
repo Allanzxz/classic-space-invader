@@ -26,12 +26,23 @@ background.src = 'src/assets/images/space.png';
 const enemyBulletController = new BulletController(canvas, 4, "red", false);
 const playerBulletController = new BulletController(canvas, 10, "white", true);
 
-const enemyController = new EnemyController(canvas, enemyBulletController, playerBulletController);
-const player = new Player(canvas, 10, playerBulletController);
-
+let enemyController;
+let player;
+let playerScore = 0;
 let isGameOver = false;
 let didWin = false;
 let gameInterval;
+
+function updateScore(enemyType) {
+    const scoreMap = {
+        1: 50,
+        2: 100,
+        3: 150,
+    };
+
+    playerScore += scoreMap[enemyType] || 0;
+    scoreDisplay.innerText = 'Pontuação: ${playerScore}';
+}
 
 function game() {
     canvas.style.display = "none";
@@ -75,6 +86,16 @@ if (enemyController.enemyRows.length === 0) {
 didWin = true;
 isGameOver = true;
 }
+}
+function initgame() {
+enemyBulletController = new EnemyBulletController(
+    canvas,
+    enemyBulletController,
+    playerBulletController
+);
+player = new Player(canvas, 10, playerBulletController);
+playerScore = 0;
+
 }
 function startGame () {
     instructions.style.display = "none";

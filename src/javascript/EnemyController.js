@@ -29,6 +29,7 @@ export default class EnemyController {
         this.playerBulletController = playerBulletController;
         this.enemyDeathSound = new Audio("src/assets/sounds/enemy-death.wav");
         this.enemyDeathSound.volume = 0.1;
+        
 
         this.createEnemies();
     }
