@@ -4,8 +4,14 @@ import Player from './Player.js';
 
 const canvas = document.getElementById('game');
 const ctx = canvas.getContext('2d');
+const instructions = document.getElementById('instructions');
+const logosContainer = document.getElementById("logosContainer");
+const gameOverScreen = document.getElementById("gameOverScreen");
+const winScreen = document.getElementById("winScreen");
+const title = document.getElementById("title");
+const scoreDisplay = document.getElementById("score")
 
-canvas.width = 600;
+canvas.width = 1024;
 canvas.height = 600;
 
 const background = new Image();
@@ -21,25 +27,36 @@ let isGameOver = false;
 let didWin = false;
 
 function game() {
+    canvas.style.display = "none";
+    gameOverScreen.style.display = "none";
+    winScreen.style.display = "none";
+    title.style.display = "none";
+    scoreDisplay.style.display = "none";
 checkGameOver();
-if (isGameOver) {
-displayGameOver();
-return;
-}
 ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
-enemyController.draw(ctx);
-player.draw(ctx);
-playerBulletController.draw(ctx);
-enemyBulletController.draw(ctx);
-}
-function displayGameOver() {
+if (isGameOver) {
+    enemyController.draw(ctx);
+    player.draw(ctx);
+    playerBulletController.draw(ctx);
+    enemyBulletController.draw(ctx);
+}else {
+    displayGameOver();
 
-if (didWin) {
-window.location.href = "vencedor.html";
-} else {
-window.location.href = "perdedor.html";
 }
 }
+
+function displayGameOver() {
+    let text = didWin ? "Voçe ganhou!" : "Game Over!";
+    let textOffset = didWin ? 5 : 3.6;
+
+    ctx.fillStyle = "white";
+    ctx.font = "35px 'Press Start 2P'";
+    ctx.fillText(text, canvas.width / 2, canvas.height / 2 - textOffset * 36);
+}
+
+
+
+
 function checkGameOver() {
 
 if (isGameOver) return;
