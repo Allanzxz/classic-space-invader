@@ -17,6 +17,10 @@ const restartButton = document.getElementById("restartButton");
 const winScreenScore = document.getElementById("winScreenScore");
 const footer = document.getElementById("footer");
 
+gameOverScreen.style.display = 'none';
+winScreen.style.display = 'none';
+scoreDisplay.style.display = 'none';
+
 canvas.width = 1024;
 canvas.height = 600;
 
@@ -50,7 +54,12 @@ function game() {
     winScreen.style.display = "none";
     title.style.display = "none";
     scoreDisplay.style.display = "none";
-checkGameOver();
+checkGameOver(); {
+    if(isGameOver) {
+        clearInterval(gameInterval);
+        return;
+    }
+}
 ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 if (isGameOver) {
     enemyController.draw(ctx);
@@ -64,8 +73,19 @@ if (isGameOver) {
 }
 
 function displayGameOver() {
-    let text = didWin ? "Voce ganhou!" : "Game Over!";
-    let textOffset = didWin ? 5 : 3.6;
+    if(isGameOver) {
+        canvas.style.display = "none";
+        title.style.display = "none";
+        scoreDisplay.style.display = "none";
+
+        if(didiWin) {
+            winScreenScore.style.display = "flex";
+            winScreenScore.innerText = `Pontuação: ${playerScore}`
+        }else{
+            gameOverScreenScore.style.display = "flex";
+            gameOverScreenScore.innerText = `Pontuação: ${playerScore}`
+        }
+    }
 
     ctx.fillStyle = "white";
     ctx.font = "35px 'Press Start 2P'";
@@ -95,6 +115,9 @@ enemyBulletController = new EnemyBulletController(
 );
 player = new Player(canvas, 10, playerBulletController);
 playerScore = 0;
+updateScore(0);
+isGameOver = false;
+didWin = false;
 
 }
 function startGame () {
@@ -114,3 +137,5 @@ playerButton.addEventListener("click", startGame);
 
 
 setInterval(game, 1000 / 60);
+
+initgame();
