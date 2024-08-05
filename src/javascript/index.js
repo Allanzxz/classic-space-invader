@@ -30,9 +30,6 @@ background.src = 'src/assets/images/space.png';
 const enemyBulletController = new BulletController(canvas, 4, "red", false);
 const playerBulletController = new BulletController(canvas, 10, "white", true);
 
-let enemyController;
-let player;
-let playerScore = 0;
 let isGameOver = false;
 let didWin = false;
 let gameInterval;
@@ -49,109 +46,7 @@ function updateScore(enemyType) {
 }
 
 function game() {
-    canvas.style.display = "none";
-    gameOverScreen.style.display = "none";
-    winScreen.style.display = "none";
-    title.style.display = "none";
-    scoreDisplay.style.display = "none";
-checkGameOver(); {
-    if(isGameOver) {
-        clearInterval(gameInterval);
-        return;
-    }
-}
-ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
-if (isGameOver) {
-    enemyController.draw(ctx);
-    player.draw(ctx);
-    playerBulletController.draw(ctx);
-    enemyBulletController.draw(ctx);
-}else {
-    displayGameOver();
 
 }
-}
-
 function displayGameOver() {
-    if(isGameOver) {
-        canvas.style.display = "none";
-        title.style.display = "none";
-        scoreDisplay.style.display = "none";
 
-        if(didiWin) {
-            winScreenScore.style.display = "flex";
-            winScreenScore.innerText = `Pontuação: ${playerScore}`
-        }else{
-            gameOverScreenScore.style.display = "flex";
-            gameOverScreenScore.innerText = `Pontuação: ${playerScore}`
-        }
-    }
-
-    ctx.fillStyle = "white";
-    ctx.font = "35px 'Press Start 2P'";
-    ctx.fillText(text, canvas.width / 2, canvas.height / 2 - textOffset * 36);
-}
-
-
-
-
-function checkGameOver() {
-
-if (isGameOver) return;
-if (enemyBulletController.collideWith(player) || enemyController.collideWith(player)) {
-
-isGameOver = true;
-}
-if (enemyController.enemyRows.length === 0) {
-didWin = true;
-isGameOver = true;
-}
-}
-function initgame() {
-enemyBulletController = new EnemyBulletController(
-    canvas,
-    enemyBulletController,
-    playerBulletController
-);
-player = new Player(canvas, 10, playerBulletController);
-playerScore = 0;
-updateScore(0);
-isGameOver = false;
-didWin = false;
-
-}
-function startGame () {
-    instructions.style.display = "none";
-    logosContainer.style.display = "none";
-    footerContainer.style.display = "none";
-    winScreen.style.display = "none";
-
-    title.style.display = "flex";
-    scoreDisplay.style.display = "flex";
-
-    canvas.style.display = "block";
-    gameInterval = setInterval(game, 1000 / 60);
-    
-}
-
-function restartGame () {
-    gameOverScreen.style.display = "none";
-    winScreen.style.display = "none";
-    title.style.display = "none";
-    canvas.style.display = "none";
-    scoreDisplay.style.display = "none";
-
-    instructions.style.display = "flex";
-    logosContainer.style.display = "flex";
-    footer.style.display = "flex";
-}
-playerButton.addEventListener("click", startGame);
-retryButton.addEventListener("click", startGame);
-restartButton.addEventListener("click", startGame);
-
-
-
-
-setInterval(game, 1000 / 60);
-
-initgame();

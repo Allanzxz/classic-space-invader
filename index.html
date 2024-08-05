@@ -6,135 +6,20 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-<title>Menu | Classic Space Invaders</title>
-<style>
-    canvas{
-        box-shadow: black 20px 10px 50px;
-    }
-    h1 {
-        margin-top: 20px;
-        font-family: "Press Start 2P";
-        font-size: 2.5em;
-        margin-bottom: 10px;
-        color: white;
-    }
+
 body {
 display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
 height: 100vh;
-margin: 0px;
-padding: 0px;
-font-family: 'Press Start 2P', cursive;
-background: linear-gradient(0deg, rgba(16, 254, 226, 0.804) 0%, rgb(0, 0, 0) 100%);
-color: rgb(255, 255, 255);
-}
-#game, #title, #gameOverScreen, #winScreen {
-    display: none;
-}
-#logosContainer{
-position: flex;
-margin-top: 30px;
-justify-content: space-between;
-}
-#instructions, #gameOverScreen, #winScreen{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    height: 100vh;
-}
-#instructions p, #gameOverScreen p, #winScreen{
-    margin: 10px 0;
-    font-size: 1.2em;
-    font-family: "Press Start 2p", Arial, Helvetica, sans-serif;
-    color: white;
-}
-#instructions span {
-    color: rgb(0,74,141);
-}
-.button {
-    margin-top: 10px 0 10px 0;
-    padding: 10px;
-    border-radius: 8px;
-    font-size: 1.2em;
-    font-family: 'Press Start 2p', Arial, Helvetica, sans-serif;
-    color: rgb(32, 206, 67);
-    cursor: pointer;
-}
-.button:hover {
-    background: rgb(32, 206, 67);
-    color: white;
-    box-shadow: rgb(146, 231, 142) 5px 5px 10px;
-    transition: 0.3s;
 
-}
-#score {
-    font-family: "Press Start 2P", Arial, Helvetica, sans-serif;
-    color: black;
-    font-size: 0.5em;
-}
-#link {
-color: black;
-cursor: pointer;
-}
-#link:hover {
-    color: rgb(32, 206, 67);
 }
 </style>
 </head>
 <body>
-    <div id="logosContainer">
-        <div>
-        <img src="src/assests/images/SescSenac.png" alt="Logo Senac" widht="300px" height="110px">
-    </div>
-    <div id="LogoSesc">
-        <img src="src/assests/images/logo-sesc.png" alt="Logo Sesc" widht="310px" height="150px">
-        </div>
-    </div>
-    <div id="instructions">
-        <h1> Bem-vindo ao jogo <span>Space Invaders!</span></h1>
-        <p> Use as setas esquerda e direita para mover.</p>
-        <p> Pressione a barra de espaço para atirar</p>
-        <button id="playButton" class="button">Jogar</button>
-    </div>
-    <div id="gameOverScreen">
-        <h1> Game Over</h1>
-        <p id="gameOverScreenScore"></p>
-        <button id="retryButton" class="button">Tentar Novamente</button>
-    </div>
-    <div id="winScreen">
-        <h1> Parabéns, voçe venceu!</h1>
-        <p id="winScreenScore"></p>
-        <button id="restarButton" class="button">Reiniciar</button>
-    </div>
-    <div id="titleAndScore">
-        <h1 id="title">Space Invaders</h1>
-        <p id="score">Pontuação: 0</p>
-    </div>
-    <canvas id="game"></canvas>
-    <footer
-        id="footer"
-        style="
-            color: black;
-            margin-bottom: 20px;
-            font-family: 'Press Start 2P , Arial, Helvetica, sans-serif';
-            font-size: 10px;
-        "
-    >
-        copyright &copy; 2024 - &af;
-        <a 
-            id="link"
-            href="https://github.com/Allanzxz"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            &af;Allan
-        </a>
-    </footer>
-    <script type="module" src="src/javascript/index.js"></script>
 </script>
 </body>
 </html>
+
+
